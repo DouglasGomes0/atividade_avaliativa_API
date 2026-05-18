@@ -1,5 +1,7 @@
 //arquivo que vai conter todas as rotas
 import { Router } from 'express';
+import userroutes from './user.routes';
+import pokemonroutes from './pokemon.routes';
 
 // import Logger from '../config/logger';
  //import { login } from '../controllers/auth.controller';
@@ -15,7 +17,8 @@ router.get('/health', (req, res) => {
 // Nova rota pública de login
  //router.post('/login', login); // <-- ROTA DE LOGIN AQUI
 
-// Todas as rotas de utilizadores vão começar com /users
+ router.use('/users', userroutes);
+ router.use('/pokemon', pokemonroutes);
 
 
 export default router;
