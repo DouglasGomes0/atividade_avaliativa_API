@@ -2,6 +2,7 @@
 import { Router } from 'express';
 import userroutes from './user.routes';
 import pokemonroutes from './pokemon.routes';
+import authRoutes from './auth.routes';
 
 // import Logger from '../config/logger';
  //import { login } from '../controllers/auth.controller';
@@ -14,11 +15,9 @@ router.get('/health', (req, res) => {
   res.status(200).json({ status: 'OK', message: 'API a correr perfeitamente.' });
 });
 
-// Nova rota pública de login
- //router.post('/login', login); // <-- ROTA DE LOGIN AQUI
-
  router.use('/users', userroutes);
  router.use('/pokemon', pokemonroutes);
+ router.use(authRoutes);
 
 
 export default router;

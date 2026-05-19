@@ -5,10 +5,22 @@ import morgan from 'morgan';
 import dotenv from 'dotenv';
 import Logger from './config/logger';
 import routes from './routes';
+import rateLimit from 'express-rate-limit';
 
 dotenv.config();
 
 const app = express();
+const limiter = rateLimit({
+  windowMs: 15 * 60 * 1000, // 15 minutos
+
+  max: 100, // máximo de 100 requests
+
+  message: {
+    error: 'Muitas requisições. Tente novamente mais tarde.'
+  }
+});
+
+app.use(limiter);
 const PORT = process.env.PORT || 3000;
 
 // Segurança
