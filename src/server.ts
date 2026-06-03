@@ -21,7 +21,7 @@ const limiter = rateLimit({
 });
 
 app.use(limiter);
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8080;
 
 // Segurança
 app.use(helmet());
@@ -46,6 +46,6 @@ app.use(
 app.use(routes);
 
 // Inicialização
-app.listen(PORT, () => {
-  Logger.info(`🚀 Servidor rodando na porta ${PORT}`);
+app.listen(Number(PORT), '0.0.0.0', () => {
+  console.log(`🚀 API server running at http://localhost:${PORT}`);
 });
