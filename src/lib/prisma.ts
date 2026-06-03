@@ -1,5 +1,4 @@
-import { PrismaClient } from '@prisma/client';
-
+import { PrismaClient } from '../../generated/prisma';
 
 // Isso garante que não criemos múltiplas conexões com o banco em desenvolvimento
 
