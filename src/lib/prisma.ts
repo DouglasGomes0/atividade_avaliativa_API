@@ -10,7 +10,7 @@ export const prisma =
 
   new PrismaClient({
 
-    log: ['query'], // Mostra as queries SQL no console 
+    log: ['query'], // Mostra as queries SQL no console.
 
   });
 
